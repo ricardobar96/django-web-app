@@ -13,6 +13,7 @@
                 Items
             </th>
             <th></th>
+            <th></th>
         </tr>
 
         {% for task in tasks %}
@@ -20,6 +21,7 @@
         <tr>
             <th>{{task.title}}</th>
             <td><a href="{% url 'task' task.id %}">Go</a></td>
+            <td><a href="{% url 'update-task' task.id %}">Update</a></td>
         </tr>
 
         {% empty %}
