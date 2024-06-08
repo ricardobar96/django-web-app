@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <h1>Delete Task</h1>
+     <a href="{% url 'tasks' %}">Return</a>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <p>You are going to delete this task: "{{task}}"</p>
+        <input type="submit" value="Delete">
+    </form>
+
+</body>
+</html>
