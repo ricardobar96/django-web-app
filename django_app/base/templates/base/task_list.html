@@ -18,6 +18,12 @@
 
     <h1>To Do</h1>
     <a href="{% url 'create-task' %}">Create new task</a>
+
+    <form method="GET">
+        <input type="text" name="area-search">
+        <input type="submit" value="Search">
+    </form>
+
     <table>
         <tr>
             <th>
