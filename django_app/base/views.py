@@ -4,3 +4,4 @@ from .models import Task
 
 class  ListToDo(ListView):
     model = Task
+    context_object_name = 'tasks'
