@@ -1,4 +1,4 @@
 from django.urls import path
-from . import views
+from .views import ListToDo
 
-urlpatterns = [path('', views.list_orders, name='orders')]
+urlpatterns = [path('', ListToDo.as_view(), name='To Do')]

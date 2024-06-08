@@ -55,7 +55,7 @@ ROOT_URLCONF = 'django_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:\\Users\\ricar\\OneDrive\\Documents\\django_project\\django-web-app\\django_app\\base\\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
