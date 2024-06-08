@@ -5,6 +5,14 @@
     <title>To Do</title>
 </head>
 <body>
+    {% if request.user.is_authenticated %}
+        <p>{{request.user}}</p>
+        <a href="">Exit</a>
+    {% else %}
+        <a href="">Login</a>
+    {% endif %}
+    <hr>
+
     <h1>To Do</h1>
     <a href="{% url 'create-task' %}">Create new task</a>
     <table>
