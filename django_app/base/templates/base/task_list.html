@@ -11,12 +11,14 @@
             <th>
                 Items
             </th>
+            <th></th>
         </tr>
 
         {% for task in tasks %}
 
         <tr>
             <th>{{task.title}}</th>
+            <td><a href="{% url 'task' task.id %}">Go</a></td>
         </tr>
 
         {% empty %}
