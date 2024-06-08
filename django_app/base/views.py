@@ -20,6 +20,12 @@ class  ListToDo(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tasks'] = context['tasks'].filter(user=self.request.user)
+        context['count'] = context['tasks'].filter(complete=False).count()
+        return context
+
 class  DetailTask(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
