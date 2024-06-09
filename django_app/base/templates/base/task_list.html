@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>To Do</title>
-</head>
-<body>
+{% extends 'base/main.html' %}
+{% block content %}
     {% if request.user.is_authenticated %}
         <p>{{request.user}}</p>
         <form action="{% url 'logout' %}" method="post">
@@ -20,7 +15,7 @@
     <a href="{% url 'create-task' %}">Create new task</a>
 
     <form method="GET">
-        <input type="text" name="area-search">
+        <input type="text" name="area-search" value="{{to_search}}">
         <input type="submit" value="Search">
     </form>
 
@@ -37,7 +32,6 @@
 
         <tr>
             <th>{{task.title}}</th>
-            <td><a href="{% url 'task' task.id %}">Go</a></td>
             <td><a href="{% url 'update-task' task.id %}">Update</a></td>
             <td><a href="{% url 'delete-task' task.id %}">Delete</a></td>
         </tr>
@@ -47,5 +41,4 @@
 
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock content %}

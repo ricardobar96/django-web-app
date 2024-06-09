@@ -47,7 +47,7 @@ class  ListToDo(LoginRequiredMixin, ListView):
         to_search =self.request.GET.get('area-search') or ''
         if to_search:
             context['tasks'] = context['tasks'].filter(title__icontains=to_search)
-
+        context['to_search'] = to_search
         return context
 
 class  DetailTask(LoginRequiredMixin, DetailView):

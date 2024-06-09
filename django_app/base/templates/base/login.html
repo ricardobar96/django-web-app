@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'base/main.html' %}
+{% block content %}
     <h1>Login</h1>
     <form method="POST">
         {% csrf_token %}
@@ -13,5 +8,4 @@
     </form>
 
     <p>New user? <a href="{% url 'signUp'  %}">Sign Up</a></p>
-</body>
-</html>
+{% endblock content %}
