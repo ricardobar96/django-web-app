@@ -15,9 +15,7 @@
             <a href="{% url 'login'  %}">Login</a>
         {% endif %}
     </div>
-    <hr>
 
-    <h1>To Do</h1>
     <a href="{% url 'create-task' %}">Create new task</a>
 
     <form method="GET">
@@ -25,26 +23,28 @@
         <input type="submit" value="Search">
     </form>
 
-    <table>
-        <tr>
-            <th>
-                Items
-            </th>
-            <th></th>
-            <th></th>
-        </tr>
-
+    <div class="container-items-tasks">
         {% for task in tasks %}
-
-        <tr>
-            <th>{{task.title}}</th>
-            <td><a href="{% url 'update-task' task.id %}">Update</a></td>
-            <td><a href="{% url 'delete-task' task.id %}">Delete</a></td>
-        </tr>
+        <div class="container-tasks">
+            {% if task.complete %}
+            <div class="title-task">
+                <div class="icon-complete"></div>
+                <i><s><a href="{% url 'update-task' task.id %}">{{task}}</a></s></i>
+            </div>
+            <a class="url-delete" href="{% url 'delete-task' task.id %}">&#x274C;</a>
+            {% else %}
+            <div class="title-task">
+                <div class="icon-incomplete"></div>
+                <a href="{% url 'update-task' task.id %}">{{task}}</a>
+            </div>
+            <a class="url-delete" href="{% url 'delete-task' task.id %}">&#x274C;</a>
+            {% endif %}
+        </div>
 
         {% empty %}
         <h3>No items in this list</h3>
 
         {% endfor %}
-    </table>
+    </div>
+
 {% endblock content %}
