@@ -9,19 +9,20 @@
         {% if request.user.is_authenticated %}
         <form action="{% url 'logout' %}" method="post">
                   {% csrf_token %}
-                  <button type="submit" class="btn btn-info">Logout</button>
+                  <button class="logout-button" type="submit" class="btn btn-info">Logout</button>
         </form>
         {% else %}
             <a href="{% url 'login'  %}">Login</a>
         {% endif %}
     </div>
 
-    <a href="{% url 'create-task' %}">Create new task</a>
-
-    <form method="GET">
-        <input type="text" name="area-search" value="{{to_search}}">
-        <input type="submit" value="Search">
-    </form>
+    <div id="container-add-search">
+         <form method="GET" style="margin-top: 20px; display: flex;">
+            <input type="text" name="area-search" value="{{to_search}}">
+            <input class="button" type="submit" value="Search">
+        </form>
+        <a id="url-add" href="{% url 'create-task' %}">&#128933;</a>
+    </div>
 
     <div class="container-items-tasks">
         {% for task in tasks %}
